@@ -1,0 +1,24 @@
+<div class="top-header">
+  <app-header></app-header>
+</div>
+<div  id="left-side" class="left-side-nav">
+  <div class="leftside-pages-container">
+    <div>
+        <a matTooltip="Home" routerLink="/home"><fa-icon [icon]="homeIcon" [styles]="{'stroke': 'black', 'color': 'gray'}" size="lg"></fa-icon></a><a id="left-link" class="left-side-link" routerLink="/home">Home</a>
+    </div>
+    <br>
+    <div>
+        <a matTooltip="Task" routerLink="/tasks"><fa-icon [icon]="calenderIcon"  [styles]="{'stroke': 'black', 'color': 'gray'}" size="lg"></fa-icon></a><a id="left-link1" class="left-side-link" routerLink="/tasks">Tasks</a>
+    </div>
+  </div>
+  <div class="toggle-button">
+    <a href="#" (click)="toggleMenu()">
+      <fa-icon *ngIf="!swipMenu" [icon]="rightArrowIcon" [styles]="{'stroke': 'black', 'color': 'gray'}" size="lg"></fa-icon>
+      <fa-icon *ngIf="swipMenu" [icon]="leftArrowIcon" [styles]="{'stroke': 'black', 'color': 'gray'}" size="lg"></fa-icon>
+    </a>
+  </div>
+</div>
+
+<div id="main-page" class="main-page-container">
+  <router-outlet></router-outlet>
+</div>

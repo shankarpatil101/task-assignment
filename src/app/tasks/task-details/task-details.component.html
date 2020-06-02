@@ -1,0 +1,53 @@
+<div *ngIf="isLoading"><app-loading-spinner></app-loading-spinner></div>
+<div *ngIf="!isLoading" class="task-list-table">
+        <h2>Tasks</h2>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 task-list-page-table">
+        
+            <ng-container matColumnDef="no">
+                <th mat-header-cell *matHeaderCellDef> No. </th>
+                <td mat-cell *matCellDef="let element; let i = index;"> {{i + 1}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="text">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.text}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="isGlobal">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Visible </th>
+                <td mat-cell *matCellDef="let element">{{ element.isGlobal === true ? 'Global' : 'Personal' }} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="isLeader">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Created By </th>
+                <td mat-cell *matCellDef="let element"> {{ element.isLeader === true ? 'Team Leader' : 'other' }} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="creator">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Owner </th>
+                <td mat-cell *matCellDef="let element"> {{element.creator}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="isCompleted">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Status </th>
+                <td mat-cell *matCellDef="let element">
+                    <span [ngClass]="{'text-success': element.isCompleted === true, 'text-primary': element.isCompleted === false}">
+                            {{ element.isCompleted === true ? 'Completed' : 'Inprogress'  }}
+                    </span> 
+                 </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="start">
+                <th mat-header-cell *matHeaderCellDef> Task Start Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.start}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="end">
+                <th mat-header-cell *matHeaderCellDef> Task End Date </th>
+                <td mat-cell *matCellDef="let element"> {{element.end}} </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+</div>

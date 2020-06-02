@@ -1,0 +1,121 @@
+<div class="row">
+    <div class="col-md-12 text-right">
+            <button mat-button (click)="openAddTask()">Add Task</button>
+    </div>
+</div>
+<div class="row"  class="task-form-row" [hidden]="!showFormDialog">
+    <div class="col-md-12 task-form-colmn">
+        <form [formGroup]="taskForm" (ngSubmit)="onSubmit()" class="example-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Name</mat-label>
+                        <input matInput id="taskname" formControlName="taskname" placeholer="Task Name">
+                        <mat-error *ngIf="taskForm.controls['taskname'].invalid && (taskForm.controls['taskname'].dirty || taskForm.controls['taskname'].touched)">
+                            <span *ngIf="taskForm.controls['taskname'].errors.required">
+                                This field is required.
+                            </span>
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Visible</mat-label>
+                        <mat-select formControlName="taskVisibleBy">
+                            <mat-option *ngFor="let visible of taskVisable" [value]="visible.value">
+                                {{visible.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="taskForm.controls['taskVisibleBy'].invalid && (taskForm.controls['taskVisibleBy'].dirty || taskForm.controls['taskVisibleBy'].touched)">
+                                <span *ngIf="taskForm.controls['taskVisibleBy'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Created By</mat-label>
+                        <mat-select formControlName="taskCReatedBy">
+                            <mat-option *ngFor="let created of taskCreateds" [value]="created.value">
+                                {{created.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="taskForm.controls['taskCReatedBy'].invalid && (taskForm.controls['taskCReatedBy'].dirty || taskForm.controls['taskCReatedBy'].touched)">
+                                <span *ngIf="taskForm.controls['taskCReatedBy'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Owner</mat-label>
+                        <input matInput id="taskOwner" formControlName="taskOwner" placeholer="Task Created">
+                        <mat-error *ngIf="taskForm.controls['taskOwner'].invalid && (taskForm.controls['taskOwner'].dirty || taskForm.controls['taskOwner'].touched)">
+                                <span *ngIf="taskForm.controls['taskOwner'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Start Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="startDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="taskForm.controls['startDate'].invalid && (taskForm.controls['startDate'].dirty || taskForm.controls['startDate'].touched)">
+                                <span *ngIf="taskForm.controls['startDate'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task End Date</mat-label>
+                        <input matInput [matDatepicker]="picker1" formControlName="endDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
+                        <mat-error *ngIf="taskForm.controls['endDate'].invalid && (taskForm.controls['endDate'].dirty || taskForm.controls['endDate'].touched)">
+                                <span *ngIf="taskForm.controls['endDate'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Task Status</mat-label>
+                        <mat-select formControlName="taskStatus">
+                            <mat-option *ngFor="let status of taskStatuss" [value]="status.value">
+                                {{status.viewValue}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="taskForm.controls['taskStatus'].invalid && (taskForm.controls['taskStatus'].dirty || taskForm.controls['taskStatus'].touched)">
+                                <span *ngIf="taskForm.controls['taskStatus'].errors.required">
+                                    This field is required.
+                                </span>
+                            </mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button type="submit" class="btn btn-success" [disabled]="!taskForm.valid">Save</button> | 
+                    <button type="button" class="btn btn-danger" (click)="onClear()">Clear</button> | 
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

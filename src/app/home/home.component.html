@@ -1,0 +1,15 @@
+<div class="home-page-main-container">
+    <div class="tasks-list-container">
+        <h2>Team Tasks</h2>
+        <app-tasks-list [taskStatus]="'global'"></app-tasks-list>
+    </div>
+    <div class="tasks-list-container">
+        <h2>My Tasks</h2>
+        <app-tasks-list [taskStatus]="'notGlobal'"></app-tasks-list>
+    </div>
+    <div class="tasks-list-container">
+        <h2>Team Leader Tasks</h2>
+        <app-tasks-list [taskStatus]="'teamLeader'"></app-tasks-list>
+    </div>
+
+</div>

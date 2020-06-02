@@ -1,0 +1,94 @@
+.top-header {
+    position: fixed;
+    width: 100%;
+    height: 64px;
+    z-index: 99;
+    border-bottom: rgba(247, 247, 247, 0.9905882353);
+    background-color: rgb(214, 226, 231)
+}
+.left-side-nav {
+    position: fixed;
+    height: 100%;
+    background-color: #fff;
+    width: 5%;
+    z-index: 9;
+    padding: 8px;
+    border: 1px solid #bcbcbc;
+   
+    a.left-side-link:hover {
+        text-decoration: none;
+    }
+}
+.leftside-pages-container {
+    position: absolute;
+    top: 11%;
+    left: 13px;
+}
+.main-page-container{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    padding: 10px;
+    width: 95%;
+    background-color: rgba(227, 235, 238, 0.47058823529411764);
+    padding-top: 64px;
+}
+.main-page-container-add{
+    position: absolute;
+    top: 0;
+    left: 10%;
+    padding: 10px;
+    width: 90%;
+    background-color: rgba(227, 235, 238, 0.47058823529411764);
+    padding-top: 64px;
+}
+.main-page-container-less{
+    position: absolute;
+    top: 0;
+    left: 5%;
+    padding: 10px;
+    width: 95%;
+    background-color: rgba(227, 235, 238, 0.47058823529411764);
+    padding-top: 64px;
+}
+.toggle-button {
+    position: absolute;
+    bottom: 6%;
+    left: 15px;
+}
+.fullWidth{
+    position: fixed;
+    height: 100%;
+    background-color: #fff;
+    width: 10%;
+    z-index: 9;
+    padding: 8px;
+    border: 1px solid #bcbcbc;
+}
+.halfWidth{
+    position: fixed;
+    height: 100%;
+    background-color:#fff;
+    width: 5%;
+    z-index: 9;
+    padding: 8px;
+    border: 1px solid #bcbcbc;
+}
+ a.left-side-link {
+        margin-left: 17px;
+        padding-top: 10px;
+        color: inherit;
+        display: none;
+    }
+.left-side-link-add{
+    margin-left: 17px;
+    padding-top: 10px;
+    color: inherit;
+    display: inline-block !important;
+}
+.left-side-link-remove{
+    margin-left: 17px;
+    padding-top: 10px;
+    color: inherit;
+    display: none;
+}
